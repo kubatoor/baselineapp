@@ -1,0 +1,42 @@
+Release Management Tab
+ Release Table
+    Release ID
+    Release Date
+    Release Coordinator
+
+
+ Projects Table
+    ProjectID
+    ProjectName
+    Project_Release_Date
+
+
+ RELEASE_PROJECT_TABLE
+    RELEASE_PROJECT_ID
+    RELEASE_ID
+    PROECT_ID
+
+
+ Applications Table
+    ApplicationID
+    Application Name
+    Ear Name
+    EJB Module
+    Web Module
+    V_HOST
+    PRODUCTION_BASELINE
+
+
+ PROJECT_APPLICATION_TABLE
+    PROJECT_APPLICATION_ID
+    PROJECT_ID
+    APPLICATION_ID
+
+ Builds Table
+    BuildID
+    BuildPath
+    BaselineName
+    ApplicationID(FK)
+
+
+
