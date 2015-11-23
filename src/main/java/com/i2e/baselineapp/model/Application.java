@@ -13,15 +13,10 @@ public class Application {
 
     private Long applicationID;
     private String applicationName;
+    private String jvmName;
     private String cellName;
-    private String artifactName;
-    private String ejbModule;
-    private String webModule;
-    private String vHostMapping;
-    private String prodBaseline;
-    private Set<Build> builds;
-    private Project project;
-
+    private String buildPath;
+    private Set<ApplicationModule> appModules;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -54,83 +49,41 @@ public class Application {
         return this;
     }
 
-    @Column(name = "artifact_name")
-    public String getArtifactName() {
-        return artifactName;
+    public String getJvmName() {
+        return jvmName;
     }
 
-    public Application setArtifactName(String artifactName) {
-        this.artifactName = artifactName;
-        return this;
+    public void setJvmName(String jvmName) {
+        this.jvmName = jvmName;
     }
 
-    @Column(name = "ejb_module")
-    public String getEjbModule() {
-        return ejbModule;
+    public String getBuildPath() {
+        return buildPath;
     }
 
-    public Application setEjbModule(String ejbModule) {
-        this.ejbModule = ejbModule;
-        return this;
-    }
-
-    @Column(name = "web_module")
-    public String getWebModule() {
-        return webModule;
-    }
-
-    public Application setWebModule(String webModule) {
-        this.webModule = webModule;
-        return this;
-    }
-
-    @Column(name = "vhost_mapping")
-    public String getvHostMapping() {
-        return vHostMapping;
-    }
-
-    public Application setvHostMapping(String vHostMapping) {
-        this.vHostMapping = vHostMapping;
-        return this;
-    }
-
-    @Column(name = "prod_baseline")
-    public String getProdBaseline() {
-        return prodBaseline;
-    }
-
-    public Application setProdBaseline(String prodBaseline) {
-        this.prodBaseline = prodBaseline;
-        return this;
+    public void setBuildPath(String buildPath) {
+        this.buildPath = buildPath;
     }
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "application")
-    public Set<Build> getBuilds() {
-        return builds;
+    public Set<ApplicationModule> getAppModules() {
+        return appModules;
     }
 
-    public void setBuilds(Set<Build> builds) {
-        this.builds = builds;
+    public void setAppModules(Set<ApplicationModule> appModules) {
+        this.appModules = appModules;
     }
 
-    @ManyToOne
-    @JoinColumn(name="application_id")
-    public Project getProject() {
-        return project;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "application")
+    public Set<Baseline> getBaselines() {
+        return baselines;
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public void setBaselines(Set<Baseline> baselines) {
+        this.baselines = baselines;
     }
 
-
-
-
-
-
-
-
-
+    private Set<Baseline> baselines;
 
 
 
