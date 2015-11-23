@@ -3,8 +3,11 @@
 *.classpath
 *.prefs
 *.bat
+.gradle/*
+build/*
 target/*
 */target/*
 /bin
 .idea
 *.iml
+spath

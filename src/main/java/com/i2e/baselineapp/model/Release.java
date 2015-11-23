@@ -9,7 +9,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "release_table")
+@Table(name = "RELEASE_TABLE")
 public class Release {
 
     @Id
@@ -39,13 +39,13 @@ public class Release {
         this.releaseCoordinator = releaseCoordinator;
     }
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="release_project_table", joinColumns = @JoinColumn(name = "release_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id"))
     public Set<Project> getProjects() {
         return projects;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="release_project", joinColumns = @JoinColumn(name = "release_id"),
-            inverseJoinColumns = @JoinColumn(name = "project_id"))
     public void setProjects(Set<Project> projects) {
         this.projects = projects;
     }

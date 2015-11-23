@@ -8,12 +8,14 @@ import java.util.Set;
  */
 
 @Entity
+@Table(name = "PROJECT_TABLE")
 public class Project {
 
     private Long projectID;
     private String projectName;
     private String contactPerson;
     private Set<Release> releases;
+    private Set<Application> applications;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -56,4 +58,14 @@ public class Project {
         this.releases = releases;
         return this;
     }
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
+    public Set<Application> getApplications() {
+        return applications;
+    }
+
+    public void setApplications(Set<Application> applications) {
+        this.applications = applications;
+    }
+
 }
