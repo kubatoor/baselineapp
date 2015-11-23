@@ -4,6 +4,15 @@ Release Management Tab
     Release Date
     Release Coordinator
 
+Release Details
+    Release_details_id
+    project_id
+    release_id
+    apps_id
+    baseline
+    odc_app_status
+    ssb_app_status
+
 
  Projects Table
     ProjectID

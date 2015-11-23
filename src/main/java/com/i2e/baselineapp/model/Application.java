@@ -17,6 +17,8 @@ public class Application {
     private String cellName;
     private String buildPath;
     private Set<ApplicationModule> appModules;
+    private Set<Baseline> baselines;
+    private Project project;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -82,9 +84,15 @@ public class Application {
     public void setBaselines(Set<Baseline> baselines) {
         this.baselines = baselines;
     }
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    public Project getProject() {
+        return project;
+    }
 
-    private Set<Baseline> baselines;
-
+    public void setProject(Project project) {
+        this.project = project;
+    }
 
 
 }

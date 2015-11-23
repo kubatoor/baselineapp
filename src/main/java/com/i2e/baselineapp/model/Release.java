@@ -22,11 +22,9 @@ public class Release {
     }
 
     @Column(name="release_date")
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
+    public String getReleaseDate() {return releaseDate;}
 
-    public void setReleaseDate(Date releaseDate) {
+    public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 
@@ -50,8 +48,17 @@ public class Release {
         this.projects = projects;
     }
 
+    public String getAppCategory() {
+        return appCategory;
+    }
+
+    public void setAppCategory(String appCategory) {
+        this.appCategory = appCategory;
+    }
+
     private Long releaseID;
-    private Date releaseDate;
+    private String releaseDate;
     private String releaseCoordinator;
     private Set<Project> projects;
+    private String appCategory;
 }

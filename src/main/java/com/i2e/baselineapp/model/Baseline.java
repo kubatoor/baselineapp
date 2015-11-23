@@ -4,6 +4,8 @@ import javax.persistence.*;
 /**
  * Created by anirudh on 11/23/15.
  */
+@Entity
+@Table(name = "baseline_table")
 public class Baseline {
 
     @Id

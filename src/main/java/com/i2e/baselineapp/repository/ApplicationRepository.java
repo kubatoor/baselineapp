@@ -13,6 +13,5 @@ public interface ApplicationRepository extends CrudRepository<Application, Long>
 
     public Application findByApplicationName(String applicationName);
 
-    public Application findByEjbModule(String ejbModule);
-}
+   }
 

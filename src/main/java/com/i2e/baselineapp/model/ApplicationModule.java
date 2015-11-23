@@ -5,6 +5,9 @@ import javax.persistence.*;
 /**
  * Created by anirudh on 11/23/15.
  */
+
+@Entity
+@Table(name = "application_module_table")
 public class ApplicationModule {
 
     private Long applicationModuleId;
