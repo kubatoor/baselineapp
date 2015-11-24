@@ -11,7 +11,9 @@ import java.util.Date;
  */
 public interface ReleaseRepository extends CrudRepository<Release,Long> {
 
-    public Release findByReleaseDate(Date date);
+    public List<Release> findByReleaseDate(String date);
     public List<Release> findAll();
+    public Release save(Release release);
+
 
 }

@@ -5,8 +5,7 @@ import com.i2e.baselineapp.repository.ReleaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/release")
-public class ReleaseHistoryController {
+public class ReleaseController {
 
     @Autowired
     ReleaseRepository releaseRepository;
@@ -28,6 +27,20 @@ public class ReleaseHistoryController {
         List<Release> releases = releaseRepository.findAll();
 
         return new ResponseEntity<List<Release>>(releases, HttpStatus.OK);
+
+    }
+
+    @RequestMapping("{date}")
+    public ResponseEntity<List<Release>> getReleaseByDate(@PathVariable("date") String date){
+
+        List<Release> releases = releaseRepository.findByReleaseDate(date);
+        return new ResponseEntity<List<Release>>(releases, HttpStatus.OK);
+
+    }
+
+    @RequestMapping(value="/add" , method = RequestMethod.POST)
+    public void addRelease(@RequestBody Release release){
+        releaseRepository.save(release);
 
     }
 

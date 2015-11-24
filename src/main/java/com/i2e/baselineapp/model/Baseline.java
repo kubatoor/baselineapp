@@ -42,6 +42,11 @@ public class Baseline {
         this.ssbStatus = ssbStatus;
     }
 
+    public String getBaselineDate() {return baselineDate;}
+
+    public void setBaselineDate(String baselineDate) {this.baselineDate = baselineDate;}
+
+
     @ManyToOne
     @JoinColumn(name = "application_id")
     public Application getApplication() {
@@ -57,6 +62,7 @@ public class Baseline {
     private String odcStatus;
     private String ssbStatus;
     private Application application;
+    private String baselineDate;
 
 
 
