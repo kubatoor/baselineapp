@@ -9,7 +9,13 @@ import javax.persistence.*;
 public class Baseline {
 
 	protected Baseline(){};
-	
+	/**
+	 * This is needed to initialize and test
+	 * @param baselineName
+	 * @param odcStatus
+	 * @param ssbStatus
+	 * @param application
+	 */
 	public Baseline( String baselineName, String odcStatus, String ssbStatus, Application application){
 		this.baselineName = baselineName;
 		this.odcStatus = odcStatus;

@@ -21,7 +21,7 @@ import com.i2e.baselineapp.model.ApplicationModule;
 
 /**
  * @author ptalele
- *
+ * This is test class
  */
 @SpringBootApplication
 @RunWith(SpringJUnit4ClassRunner.class)
