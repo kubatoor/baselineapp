@@ -1,8 +1,15 @@
 package com.i2e.baselineapp.model;
 
-import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * Created by anirudh on 11/21/15.
@@ -11,88 +18,90 @@ import java.util.Set;
 @Table(name = "APPLICATION_TABLE")
 public class Application {
 
-    private Long applicationID;
-    private String applicationName;
-    private String jvmName;
-    private String cellName;
-    private String buildPath;
-    private Set<ApplicationModule> appModules;
-    private Set<Baseline> baselines;
-    private Project project;
+	private Long applicationID;
+	private String applicationName;
+	private String jvmName;
+	private String cellName;
+	private String buildPath;
+	private Set<ApplicationModule> appModules;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getApplicationID() {
-        return applicationID;
-    }
+	public Application() {
+	};
 
-    public Application setApplicationID(Long applicationID) {
-        this.applicationID = applicationID;
-        return this;
-    }
+	public Application(String applicationName, String jvmName, String cellName, String buildPath,
+			Set<ApplicationModule> appModules) {
+		this.applicationName = applicationName;
+		this.jvmName = jvmName;
+		this.cellName = cellName;
+		this.buildPath = buildPath;
+		this.appModules = appModules;
+	}
 
-    @Column(name = "application_name")
-    public String getApplicationName() {
-        return applicationName;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getApplicationID() {
+		return applicationID;
+	}
 
-    public Application setApplicationName(String applicationName) {
-        this.applicationName = applicationName;
-        return this;
-    }
+	public Application setApplicationID(Long applicationID) {
+		this.applicationID = applicationID;
+		return this;
+	}
 
-    @Column(name = "cell_name")
-    public String getCellName() {
-        return cellName;
-    }
+	@Column(name = "application_name")
+	public String getApplicationName() {
+		return applicationName;
+	}
 
-    public Application setCellName(String cellName) {
-        this.cellName = cellName;
-        return this;
-    }
+	public Application setApplicationName(String applicationName) {
+		this.applicationName = applicationName;
+		return this;
+	}
 
-    public String getJvmName() {
-        return jvmName;
-    }
+	@Column(name = "cell_name")
+	public String getCellName() {
+		return cellName;
+	}
 
-    public void setJvmName(String jvmName) {
-        this.jvmName = jvmName;
-    }
+	public Application setCellName(String cellName) {
+		this.cellName = cellName;
+		return this;
+	}
 
-    public String getBuildPath() {
-        return buildPath;
-    }
+	public String getJvmName() {
+		return jvmName;
+	}
 
-    public void setBuildPath(String buildPath) {
-        this.buildPath = buildPath;
-    }
+	public void setJvmName(String jvmName) {
+		this.jvmName = jvmName;
+	}
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "application")
-    public Set<ApplicationModule> getAppModules() {
-        return appModules;
-    }
+	public String getBuildPath() {
+		return buildPath;
+	}
 
-    public void setAppModules(Set<ApplicationModule> appModules) {
-        this.appModules = appModules;
-    }
+	public void setBuildPath(String buildPath) {
+		this.buildPath = buildPath;
+	}
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "application")
-    public Set<Baseline> getBaselines() {
-        return baselines;
-    }
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "application")
+	public Set<ApplicationModule> getAppModules() {
+		return appModules;
+	}
 
-    public void setBaselines(Set<Baseline> baselines) {
-        this.baselines = baselines;
-    }
-    @ManyToOne
-    @JoinColumn(name = "project_id")
-    public Project getProject() {
-        return project;
-    }
+	public void setAppModules(Set<ApplicationModule> appModules) {
+		this.appModules = appModules;
+	}
 
-    public void setProject(Project project) {
-        this.project = project;
-    }
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "application")
+	public Set<Baseline> getBaselines() {
+		return baselines;
+	}
 
+	public void setBaselines(Set<Baseline> baselines) {
+		this.baselines = baselines;
+	}
+
+	private Set<Baseline> baselines;
 
 }

@@ -8,6 +8,21 @@ import javax.persistence.*;
 @Table(name = "baseline_table")
 public class Baseline {
 
+	protected Baseline(){};
+	/**
+	 * This is needed to initialize and test
+	 * @param baselineName
+	 * @param odcStatus
+	 * @param ssbStatus
+	 * @param application
+	 */
+	public Baseline( String baselineName, String odcStatus, String ssbStatus, Application application){
+		this.baselineName = baselineName;
+		this.odcStatus = odcStatus;
+		this.ssbStatus = ssbStatus;
+		this.application = application;
+	}
+	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getBaselineID() {
