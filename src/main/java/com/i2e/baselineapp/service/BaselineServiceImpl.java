@@ -6,6 +6,7 @@ import com.i2e.baselineapp.model.Application;
 import com.i2e.baselineapp.model.Baseline;
 import com.i2e.baselineapp.repository.BaseLineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 /**
  * Created by anirudh on 11/24/15.
  */
+@Component
 public class BaselineServiceImpl implements BaselineService {
 
     @Autowired

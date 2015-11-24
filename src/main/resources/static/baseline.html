@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Innovate to Efficiency</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<script>
+		function showReleaseManagement(){
+						
+			$("#releasemanagement").show();	
+			$("#baselines").hide();	
+			$("#releasehistory").hide();	
+		}
+		
+		function showBaselines(){
+			
+			$("#releasemanagement").hide();	
+			$("#baselines").show();	
+			$("#releasehistory").hide();
+			$.ajax({
+					url: 'http://localhost:8080/baselines',
+					type: "get",
+					contentType: "application/json",
+					dataType: "json",
+				   success: function(data,status)
+					{
+					if(status == "true"){
+						drawTable(data);
+					}
+					}
+				});
+		}
+
+	function drawRow(rowData) {
+	for (var i = 0; i < jsonContentSimple.length; i++) {
+			drawRow(jsonContentSimple[i]);
+		}
+	}
+		
+		function drawRow(rowData) {
+    var row = $("<tr />")
+    $("#baselinestable").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
+    row.append($("<td>" + rowData.APPNAME + "</td>"));
+    row.append($("<td>" + rowData.JVM + "</td>"));
+    row.append($("<td>" + rowData.BASELINE + "</td>"));
+    row.append($("<td>" + rowData.RELEASEDATE + "</td>"));
+}
+		
+		function showReleaseHistory(){
+			
+			$("#releasemanagement").hide();	
+			$("#baselines").hide();	
+			$("#releasehistory").show();
+		}
+			function Edit(){
+		
+			$("#baselineId").prop('disabled', false);
+			$("#filepathId").prop('disabled', false);
+			$("#jvminstanceId").prop('disabled', false);
+			$("#earfileId").prop('disabled', false);
+			$("#webmoduleId").prop('disabled', false);
+			$("#cellnameId").prop('disabled', false);
+			$("#servermappingId").prop('disabled', false);
+		
+		}
+		function Edit1(){
+		
+			$("#baselineId1").prop('disabled', false);
+			$("#filepathId1").prop('disabled', false);
+			$("#jvminstanceId1").prop('disabled', false);
+			$("#earfileId1").prop('disabled', false);
+			$("#webmoduleId1").prop('disabled', false);
+			$("#cellnameId1").prop('disabled', false);
+			$("#servermappingId1").prop('disabled', false);
+		
+		}
+		function Edit2(){
+		
+			$("#baselineId2").prop('disabled', false);
+			$("#filepathId2").prop('disabled', false);
+			$("#jvminstanceId2").prop('disabled', false);
+			$("#earfileId2").prop('disabled', false);
+			$("#webmoduleId2").prop('disabled', false);
+			$("#cellnameId2").prop('disabled', false);
+			$("#servermappingId2").prop('disabled', false);
+		
+		}
+		
+		function Save(){
+			
+			$("#baselineId").prop('disabled', true);
+			$("#filepathId").prop('disabled', true);
+			$("#jvminstanceId").prop('disabled', true);
+			$("#earfileId").prop('disabled', true);
+			$("#webmoduleId").prop('disabled', true);
+			$("#cellnameId").prop('disabled', true);
+			$("#servermappingId").prop('disabled', true);
+				$("#baselineId2").prop('disabled', true);
+			$("#filepathId2").prop('disabled', true);
+			$("#jvminstanceId2").prop('disabled', true);
+			$("#earfileId2").prop('disabled', true);
+			$("#webmoduleId2").prop('disabled', true);
+			$("#cellnameId2").prop('disabled', true);
+			$("#servermappingId2").prop('disabled', true);
+						$("#baselineId1").prop('disabled', true);
+			$("#filepathId1").prop('disabled', true);
+			$("#jvminstanceId1").prop('disabled', true);
+			$("#earfileId1").prop('disabled', true);
+			$("#webmoduleId1").prop('disabled', true);
+			$("#cellnameId1").prop('disabled', true);
+			$("#servermappingId1").prop('disabled', true);
+			alert("Application saved successfully");
+		}
+
+					$(document).ready(function(){
+					
+						$("#releasemanagement").show();	
+			$("#baselines").hide();	
+			$("#releasehistory").hide();
+  
+});
+	</script>
+	<style>
+		.jumbotron {
+			background-color: orange;
+			color: #ffffff;
+			padding: 100px, 25px;
+		}
+		
+		.navbar {
+			margin-bottom: 0;
+			background-color: orange;
+			z-index: 9999;
+			border: 0;
+			font-size: 12px !important;
+			line-height: 1.42857143 !important;
+			letter-spacing: 4px;
+			border-radius: 0;
+		}
+		
+		.navbar li a,
+		.navbar .navbar-brand {
+			color: #fff !important;
+		}
+		
+		.navbar-nav li a:hover,
+		.navbar-nav li.active a {
+			color: #f4511e !important;
+			background-color: #fff !important;
+		}
+		
+		.navbar-default .navbar-toggle {
+			border-color: transparent;
+			color: #fff !important;
+		}
+		
+		.glyphicon-btc {
+			font-size: 100px;
+		}
+		
+		footer .glyphicon {
+			font-size: 20px;
+			margin-bottom: 20px;
+			color: #f4511e;
+		}
+		
+		.bg-grey {
+			background-color: #f6f6f6;
+		}
+		
+		.container-fluid {
+			padding: 60px 50px;
+		}
+		/* Dropdown */
+		
+		.open .dropdown-toggle {
+			color: #fff;
+			background-color: #555 !important;
+		}
+		/* Dropdown links */
+		
+		.dropdown-menu li a {
+			color: #000 !important;
+		}
+		/* On hover, the dropdown links will turn red */
+		
+		.dropdown-menu li a:hover {
+			background-color: #000 !important;
+		}
+		
+		.table-condensed {
+			background-color: #f6f6f6;
+		}
+		
+		.panel-group .panel-heading + .panel-collapse > .panel-body {
+			border: 1px solid #ddd;
+		}
+		
+		.panel-group,
+		.panel-group .panel,
+		.panel-group .panel-heading,
+		.panel-group .panel-heading a,
+		.panel-group .panel-title,
+		.panel-group .panel-title a,
+		.panel-group .panel-body,
+		.panel-group .panel-group .panel-heading + .panel-collapse > .panel-body {
+			border-radius: 2px;
+			border: 0;
+		}
+		
+		.panel-group .panel-heading {
+			padding: 0;
+		}
+		
+		.panel-group .panel-heading a {
+			display: block;
+			background: orange;
+			color: #ffffff;
+			padding: 15px;
+			text-decoration: none;
+			position: relative;
+		}
+		
+		.panel-group .panel-heading a.collapsed {
+			background: #FFFFFF;
+			color: inherit;
+		}
+		
+		.panel-group .panel-heading a:after {
+			content: '-';
+			position: absolute;
+			right: 20px;
+			top: 5px;
+			font-size: 30px;
+		}
+		
+		.panel-group .panel-heading a.collapsed:after {
+			content: '+';
+		}
+		
+		.panel-group .panel-collapse {
+			margin-top: 5px !important;
+		}
+		
+		.panel-group .panel-body {
+			background: #ffffff;
+			padding: 15px;
+		}
+		
+		.panel-group .panel {
+			background-color: orange; //DC
+		}
+		
+		.panel-group .panel-body p:last-child,
+		.panel-group .panel-body ul:last-child,
+		.panel-group .panel-body ol:last-child {
+			margin-bottom: 0;
+		}
+		
+		.container-full {
+			margin: 0 auto;
+			width: 100%;
+		}
+		
+		.wrapper {
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body id="myPage" data-target=".navbar" data-offset="60">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#releasemanagement" onclick="showReleaseManagement();">RELEASE MANAGEMENT</a></li>
+					<li><a href="#baselines" onclick="showBaselines();">BASELINES</a></li>
+					<li><a href="#releasehistory" onclick="showReleaseHistory();">RELEASE HISTORY</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+
+	<div class="jumbotron text-center">
+		<h1>iDEA - Responsive Baseline App</h1>
+	</div>
+
+	</br>
+
+	<div class="container-fluid" id="releasemanagement">
+		<h2>
+				<b> RELEASE MANAGEMENT</b>
+			</h2>
+		</br>
+		<div class="row">
+
+			<div class="container-full" width="100%">
+
+
+				<div class="panel-group" id="accordion">
+
+
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                     <Strong>IS&F-OOB-Enhancement</Strong>
+                     </a>
+                  </h4>
+						</div>
+						<!--/.panel-heading -->
+						<div id="collapseTwo" class="panel-collapse collapse">
+							<div class="panel-body">
+
+								<!-- nested -->
+
+
+								<div class="panel-group" id="nested">
+
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+                     <a data-toggle="collapse" data-parent="#nested" href="#nested-collapseOne">
+                     StrongAuth
+                     </a>
+                  </h4>
+										</div>
+										<!--/.panel-heading -->
+										<div id="nested-collapseOne" class="panel-collapse collapse in">
+											<div class="panel-body">
+												<table class="table table-bordered" width="100%">
+
+													<tr>
+														<th class="col-md-3">Baseline</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="StrongAuth_Int_SM" id="baselineId" disabled>
+														</td>
+														<th class="col-md-3">File Path</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="K:/Release/StrongAuth_Int_SM" id="filepathId" disabled>
+														</td>
+													</tr>
+													<tr>
+
+														<th class="col-md-3">JVM Instance</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="InternetCMS16" id="jvminstanceId" disabled>
+														</td>
+														<th class="col-md-3">EAR File</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="StrongAuth.ear" id="earfileId" disabled>
+														</td>
+													</tr>
+
+													<tr>
+
+														<th class="col-md-3">Web Module</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="StrongAuthWeb" id="webmoduleId" disabled>
+														</td>
+														<th class="col-md-3">Websphere Cell Name</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="Cell" id="cellnameId" disabled>
+														</td>
+													</tr>
+
+													<tr>
+
+														<th class="col-md-3">WebServer Mapping</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="VirtualHost" id="servermappingId" disabled>
+														</td>
+													</tr>
+
+												</table>
+
+												<div class="wrapper">
+													<button class="btn btn-danger btn-lg" onclick="Edit()">Edit</button>
+													<button class="btn btn-success btn-lg" onclick="Save()">Save</button>
+												</div>
+
+											</div>
+											<!--/.panel-body -->
+										</div>
+										<!--/.panel-collapse -->
+									</div>
+									<!-- /.panel -->
+
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+                     <a class="collapsed" data-toggle="collapse" data-parent="#nested" href="#nested-collapseTwo">
+                   LoginLogout
+                     </a>
+                  </h4>
+										</div>
+										<!--/.panel-heading -->
+										<div id="nested-collapseTwo" class="panel-collapse collapse">
+											<div class="panel-body">
+												<table width="100%">
+													<table class="table table-bordered" width="100%">
+
+														<tr>
+															<th class="col-md-3">Baseline</th>
+															<td class="col-md-3">
+																<input type="text" class="form-control" value="LoginLogout_INT_AT" id="baselineId1" disabled>
+															</td>
+															<th class="col-md-3">File Path</th>
+															<td class="col-md-3">
+																<input type="text" class="form-control" value="K:/Path/LILO/LoginLogout_INT_AT" id="filepathId1" disabled>
+															</td>
+														</tr>
+														<tr>
+
+															<th class="col-md-3">JVM Instance</th>
+															<td class="col-md-3">
+																<input type="text" class="form-control" value="InternetCMS17" id="jvminstanceId1" disabled>
+															</td>
+															<th class="col-md-3">EAR File</th>
+															<td class="col-md-3">
+																<input type="text" class="form-control" value="LoginLogout.ear" id="earfileId1" disabled>
+															</td>
+														</tr>
+
+														<tr>
+
+															<th class="col-md-3">Web Module</th>
+															<td class="col-md-3">
+																<input type="text" class="form-control" value="LoginLogoutWeb" id="webmoduleId1" disabled>
+															</td>
+															<th class="col-md-3">Websphere Cell Name</th>
+															<td class="col-md-3">
+																<input type="text" class="form-control" value="cell" id="cellnameId1" disabled>
+															</td>
+														</tr>
+
+														<tr>
+
+															<th class="col-md-3">WebServer Mapping</th>
+															<td class="col-md-3">
+																<input type="text" class="form-control" value="VirtualHost" id="servermappingId1" disabled>
+															</td>
+														</tr>
+
+													</table>
+
+													<div class="wrapper">
+														<button class="btn btn-danger btn-lg" onclick="Edit1()">Edit</button>
+														<button class="btn btn-success btn-lg" onclick="Save()">Save</button>
+													</div>
+												</table>
+											</div>
+											<!--/.panel-body -->
+										</div>
+										<!--/.panel-collapse -->
+									</div>
+									<!-- /.panel -->
+
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+                     <a class="collapsed" data-toggle="collapse" data-parent="#nested" href="#nested-collapseThree">
+                     Rewards
+                     </a>
+                  </h4>
+										</div>
+										<!--/.panel-heading -->
+										<div id="nested-collapseThree" class="panel-collapse collapse">
+											<div class="panel-body">
+												<table class="table table-bordered" width="100%">
+
+													<tr>
+														<th class="col-md-3">Baseline</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="Rewards_INT_ND" id="baselineId2" disabled>
+														</td>
+														<th class="col-md-3">File Path</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="K:/Release/Rewards_INT_ND" id="filepathId2" disabled>
+														</td>
+													</tr>
+													<tr>
+
+														<th class="col-md-3">JVM Instance</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="InternetCMS7" id="jvminstanceId2" disabled>
+														</td>
+														<th class="col-md-3">EAR File</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="Rewards.ear" id="earfileId2" disabled>
+														</td>
+													</tr>
+
+													<tr>
+
+														<th class="col-md-3">Web Module</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="RewardsWeb" id="webmoduleId2" disabled>
+														</td>
+														<th class="col-md-3">Websphere Cell Name</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="Cell" id="cellnameId2" disabled>
+														</td>
+													</tr>
+
+													<tr>
+
+														<th class="col-md-3">WebServer Mapping</th>
+														<td class="col-md-3">
+															<input type="text" class="form-control" value="VirtualHost" id="servermappingId2" disabled>
+														</td>
+													</tr>
+
+												</table>
+
+												<div class="wrapper">
+													<button class="btn btn-danger btn-lg" onclick="Edit2()">Edit</button>
+													<button class="btn btn-success btn-lg" onclick="Save()">Save</button>
+												</div>
+												</table>
+											</div>
+											<!--/.panel-body -->
+										</div>
+										<!--/.panel-collapse -->
+									</div>
+									<!-- /.panel -->
+								</div>
+								<!-- /.panel-group -->
+
+
+
+								<!-- nested -->
+
+
+							</div>
+							<!--/.panel-body -->
+						</div>
+						<!--/.panel-collapse -->
+					</div>
+					<!-- /.panel -->
+
+
+				</div>
+				<!-- /.panel-group -->
+
+			</div>
+			<!-- /.container -->
+
+
+		</div>
+
+	</div>
+
+
+	<div class="container-fluid" id="baselines">
+		<h2>
+			<b>BASELINES</b>
+		</h2>
+		</br>
+		<div class="row">
+			<table class="table table-striped" text-align="center" id="baselinestable" align="center">
+				<thead>
+					<tr class="noExl" style="background-color:orange">
+						<th class="col-md-3">Application Name</th>
+						<th class="col-md-3">JVM</th>
+						<th class="col-md-3">Baseline</th>
+						<th class="col-md-3">Release Date</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+
+	<div class="container-fluid" id="releasehistory">
+		<h2>
+			<b>RELEASE HISTORY</b>
+		</h2>
+		</br>
+
+
+
+		<!-- nested -->
+
+
+		<div class="panel-group" id="nested">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+                     <a data-toggle="collapse" data-parent="#nested" href="#nested-collapseOne1">
+                     <Strong>StrongAuth</Strong>
+                     </a>
+                  </h4>
+				</div>
+				<!--/.panel-heading -->
+				<div id="nested-collapseOne1" class="panel-collapse collapse in">
+					<div class="panel-body">
+
+						<table class="table table-striped" text-align="center" id="dsTable" align="center">
+							<thead>
+								<tr class="noExl" style="background-color:orange">
+									<th class="col-md-3">Release Date</th>
+									<th class="col-md-3">Baseline</th>
+									<th class="col-md-3">Project Name</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>12-10-2014</td>
+									<td>StrongAuth_Int_SM</td>
+									<td>IS&F-Sec&Fraud-DEC</td>
+								</tr>
+								<tr>
+									<td>11-10-2014</td>
+									<td>StrongAuth_Int_DS</td>
+									<td>IS&F-OOB Enhancement-OCT-Release</td>
+								</tr>
+								<tr>
+									<td>11-09-2014</td>
+									<td>StrongAuth_Int_NS</td>
+									<td>Strongauth-SEP-Release</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<!--/.panel-body -->
+				</div>
+				<!--/.panel-collapse -->
+			</div>
+			<!-- /.panel -->
+
+
+		</div>
+		<!-- /.panel-group -->
+
+	</div>
+
+
+	</div>
+
+	</br>
+
+
+
+
+	</div>
+
+	<footer class="container-fluid text-center">
+		<a href="#myPage" title="To Top"> <span class="glyphicon glyphicon-chevron-up"></span> </a>
+		<p>Back to Home</p>
+	</footer>
+
+</body>
+
+</html>

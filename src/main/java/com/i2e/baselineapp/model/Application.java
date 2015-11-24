@@ -16,9 +16,37 @@ public class Application {
     private String jvmName;
     private String cellName;
     private String buildPath;
-    private Set<ApplicationModule> appModules;
     private Set<Baseline> baselines;
     private Project project;
+    private String earName;
+    private String webModuleName;
+
+    public String getEarName() {
+        return earName;
+    }
+
+    public void setEarName(String earName) {
+        this.earName = earName;
+    }
+
+    public String getWebModuleName() {
+        return webModuleName;
+    }
+
+    public void setWebModuleName(String webModuleName) {
+        this.webModuleName = webModuleName;
+    }
+
+    public String getvHostMapping() {
+        return vHostMapping;
+    }
+
+    public void setvHostMapping(String vHostMapping) {
+        this.vHostMapping = vHostMapping;
+    }
+
+    private String vHostMapping;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -65,15 +93,6 @@ public class Application {
 
     public void setBuildPath(String buildPath) {
         this.buildPath = buildPath;
-    }
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "application")
-    public Set<ApplicationModule> getAppModules() {
-        return appModules;
-    }
-
-    public void setAppModules(Set<ApplicationModule> appModules) {
-        this.appModules = appModules;
     }
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "application")
