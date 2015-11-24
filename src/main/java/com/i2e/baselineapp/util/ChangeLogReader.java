@@ -25,7 +25,7 @@ public class ChangeLogReader {
     private static final String FILE_PATH = "C:/I2E/CM_Active.xlsx";
 
 
-/*
+
     public static void main(String args[]) {
         List<Release> releases = getReleases ();
         Iterator<Release> itr = releases.iterator();
@@ -46,7 +46,7 @@ public class ChangeLogReader {
             }
         }
     }
-*/
+
 
 
     public static List<Release> getReleases() {
@@ -102,7 +102,8 @@ public class ChangeLogReader {
                             project = new Project ();
                             release.setProjects(new HashSet<Project>());
                             release.getProjects().add(project);
-                            project.setProjectID(Long.valueOf(cell));
+
+                            project.setProjectID(Long.valueOf(cell.trim()));
                         }else if(cellCount==3){
                             cell =  cellIterator.next().getStringCellValue();
                             project.setProjectName(cell);

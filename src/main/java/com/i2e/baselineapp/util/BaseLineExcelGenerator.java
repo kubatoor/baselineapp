@@ -62,11 +62,11 @@ public class BaseLineExcelGenerator {
                     row = baselineSheet.createRow(rowIndex++);
                     row.createCell(cellIndex++).setCellValue(rowIndex-1);
                     row.createCell(cellIndex++).setCellValue(project.getProjectName());
-                    row.createCell(cellIndex++).setCellValue("hardcoded");
-                    row.createCell(cellIndex++).setCellValue("JVM Instance");
-                    row.createCell(cellIndex++).setCellValue("EAR file");
-                    row.createCell(cellIndex++).setCellValue("File Path");
-                    row.createCell(cellIndex++).setCellValue("WebModule");
+                    row.createCell(cellIndex++).setCellValue("achome_i2e_2015_11_24");
+                    row.createCell(cellIndex++).setCellValue("InternetCMS11");
+                    row.createCell(cellIndex++).setCellValue("ACHome.ear");
+                    row.createCell(cellIndex++).setCellValue("K:/build/inet_achome/achome_i2e_2015_11_24");
+                    row.createCell(cellIndex++).setCellValue("ACHomeWeb");
                     row.createCell(cellIndex++).setCellValue("no");
                     row.createCell(cellIndex++).setCellValue("no");
                     row.createCell(cellIndex++).setCellValue("no");
