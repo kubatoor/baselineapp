@@ -8,6 +8,15 @@ import javax.persistence.*;
 @Table(name = "baseline_table")
 public class Baseline {
 
+	protected Baseline(){};
+	
+	public Baseline( String baselineName, String odcStatus, String ssbStatus, Application application){
+		this.baselineName = baselineName;
+		this.odcStatus = odcStatus;
+		this.ssbStatus = ssbStatus;
+		this.application = application;
+	}
+	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getBaselineID() {

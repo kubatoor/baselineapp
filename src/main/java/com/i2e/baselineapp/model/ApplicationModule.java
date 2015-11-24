@@ -5,16 +5,21 @@ import javax.persistence.*;
 /**
  * Created by anirudh on 11/23/15.
  */
-
-@Entity
-@Table(name = "application_module_table")
 public class ApplicationModule {
 
     private Long applicationModuleId;
     private String webModuleName;
     private String virtualHost;
     private Application application;
-
+    
+    protected ApplicationModule(){};
+    
+    public ApplicationModule(String webModuleName, String virtulHost, Application application){
+    	this.webModuleName = webModuleName;
+    	this.virtualHost = virtulHost;
+    	this.application = application;
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getApplicationModuleId() {
@@ -51,7 +56,9 @@ public class ApplicationModule {
         this.virtualHost = virtualHost;
     }
 
-
+  public String toString(){
+	  return "ModuleId : " + applicationModuleId + " Module Name : " + webModuleName + " virtualHost : " + virtualHost;
+  }
 
 
 }

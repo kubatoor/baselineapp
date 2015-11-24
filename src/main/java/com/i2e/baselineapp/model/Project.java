@@ -17,6 +17,16 @@ public class Project {
     private Set<Release> releases;
     private Set<Application> applications;
 
+    protected Project(){};
+    
+    public Project(String projectName, String contactPerson, Set<Release> releases, Set<Application> applications){
+    	this.projectName = projectName;
+    	this.contactPerson = contactPerson;
+    	this.releases = releases;
+    	this.applications = applications;
+    	
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "project_id")

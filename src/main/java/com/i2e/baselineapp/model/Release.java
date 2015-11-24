@@ -17,14 +17,23 @@ public class Release {
     @Column(name="release_id")
     public Long getReleaseID() { return releaseID; }
 
+    protected Release(){}
+    
+    public Release(Date releaseDate, String releaseCoordinator, Set<Project> projects){
+    	this.releaseDate = releaseDate;
+    	this.releaseCoordinator = releaseCoordinator;
+    	this.projects = projects;
+    }
     public void setReleaseID(Long releaseID) {
         this.releaseID = releaseID;
     }
 
     @Column(name="release_date")
-    public String getReleaseDate() {return releaseDate;}
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
 
-    public void setReleaseDate(String releaseDate) {
+    public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
     }
 
@@ -48,17 +57,8 @@ public class Release {
         this.projects = projects;
     }
 
-    public String getAppCategory() {
-        return appCategory;
-    }
-
-    public void setAppCategory(String appCategory) {
-        this.appCategory = appCategory;
-    }
-
     private Long releaseID;
-    private String releaseDate;
+    private Date releaseDate;
     private String releaseCoordinator;
     private Set<Project> projects;
-    private String appCategory;
 }
