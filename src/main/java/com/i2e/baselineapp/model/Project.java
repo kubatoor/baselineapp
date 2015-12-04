@@ -1,5 +1,7 @@
 package com.i2e.baselineapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -14,6 +16,7 @@ public class Project {
     private Long projectID;
     private String projectName;
     private String contactPerson;
+    @JsonIgnore
     private Set<Release> releases;
     private Set<Application> applications;
 

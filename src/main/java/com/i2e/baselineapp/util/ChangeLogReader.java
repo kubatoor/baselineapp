@@ -22,7 +22,7 @@ import com.i2e.baselineapp.model.Baseline;
  */
 public class ChangeLogReader {
 
-    private static final String FILE_PATH = "C:/I2E/CM_Active.xlsx";
+    private static final String FILE_PATH = "/home/anirudh/Downloads/CM_Active/CM_Active.xlsx";
 
 
 

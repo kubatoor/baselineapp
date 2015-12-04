@@ -1,3 +1,14 @@
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 60%;
+      margin: auto;
+	  max-height: 500px !important;
+  }
+  
+  .carousel-caption {
+    top: 0;
+    bottom: auto;
+}
 .jumbotron {
 	background-color: orange;
 	color: #ffffff;
@@ -141,4 +152,9 @@ footer .glyphicon {
 
 .wrapper {
 	text-align: center;
+}
+
+div#release{
+text-align: center;
+font-size:20px;
 }

@@ -18,7 +18,7 @@ import com.i2e.baselineapp.model.Release;
  * Created by anirudh on 23/10/14.
  */
 public class BaseLineExcelGenerator {
-    private static final String FILE_PATH = "C:/Work/BASELINES_IHS WAS8_Consumer Cell.xlsx";
+    private static final String FILE_PATH = "/home/anirudh/Downloads/CM_Active/BASELINES_IHS WAS8_Consumer Cell.xlsx";
     //We are making use of a single instance to prevent multiple write access to same file.
     private static final BaseLineExcelGenerator INSTANCE = new BaseLineExcelGenerator();
 
